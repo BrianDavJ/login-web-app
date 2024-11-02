@@ -1,51 +1,62 @@
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS  
 import json
+import os
 
 app = Flask(__name__)
+CORS(app)
 
+usersPath="./static/backend/users.json"
+def loadUsers():
+    if os.path.exists(usersPath):
+        with open(usersPath, "r") as f:
+            return json.load(f)
+    return []
 
-# Load or initialize the user data from a JSON file
-with open("./static/backend/users.json", "r") as f:
-    users = json.load(f)
+def saveUsers(users):
+    with open(usersPath,'w') as f:
+        json.dump(users,f,indent=4)
 
-@app.route('/')
+allUsers=loadUsers()
+
+@app.route('/login')
+@app.route('/signup')
 def serve_index():
     return send_from_directory('static', 'index.html')
 
-# Endpoint for login
-@app.route('/', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
+    username=data.get('username')
     email = data.get('email')
     password = data.get('password')
 
-    # Check if user exists and password matches
-    for user in users:
-        if user["email"] == email and user["password"] == password:
+    for user in allUsers:
+        if (user["email"] == email or user["username"]) and user["password"] == password:
             return jsonify({"token": "placeholder-token-123"}), 200
 
-    # If no match found, return an error response
     return jsonify({"error": "Invalid email or password"}), 401
 
-# Endpoint for signup
-@app.route('/', methods=['POST'])
+@app.route('/signup', methods=['POST'])
 def signup():
     data = request.get_json()
+    username=data.get('username')
     email = data.get('email')
     password = data.get('password')
-
-    # Check if the user already exists
-    for user in users:
+    
+    for user in allUsers:
         if user["email"] == email:
-            return jsonify({"error": "User already exists"}), 409
-
-    # If new user, add to users and save
-    new_user = {"email": email, "password": password}
-    users.append(new_user)
-    with open("users.json", "w") as f:
-        json.dump(users, f)
-
+            return jsonify({"error": "An account with this email already exists"}), 409
+        if user["username"] == username:
+            return jsonify({"error": "Username is taken"}), 409
+        
+    new_user = {"username": username, "email": email, "password": password}
+    allUsers.append(new_user)
+    saveUsers(allUsers)
     return jsonify({"message": "User created successfully!"}), 201
 
 if __name__ == '__main__':
+    print("Available routes:")
+    for rule in app.url_map.iter_rules():
+        print(f"{rule} -> {rule.endpoint}")
     app.run(debug=True)
