@@ -9,12 +9,13 @@ const loginButton = document.getElementById('login-btn');
 
 registerLink.addEventListener('click',()=> {
     wrapper.classList.add('active');
+    history.pushState(null, '', '/signup'); 
 })
 signupLink.addEventListener('click',()=> {
     wrapper.classList.remove('active');
+    history.pushState(null, '', '/login'); 
 })
 
-console.log("Adding event listeners");
 loginButton.addEventListener('click',(event)=>{
     event.preventDefault();
     const email=document.getElementById('login-email').value;
@@ -24,7 +25,8 @@ loginButton.addEventListener('click',(event)=>{
 
 registerButton.addEventListener('click',(event)=>{
     event.preventDefault();
+    const username = document.getElementById('username').value;
     const email=document.getElementById('login-email').value;
     const psw=document.getElementById('login-psw').value;
-    registerUser(email,psw)
+    registerUser(email,psw);
 })
