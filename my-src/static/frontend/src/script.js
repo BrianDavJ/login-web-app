@@ -25,8 +25,9 @@ loginButton.addEventListener('click',(event)=>{
 
 registerButton.addEventListener('click',(event)=>{
     event.preventDefault();
+
     const username = document.getElementById('username').value;
-    const email=document.getElementById('login-email').value;
-    const psw=document.getElementById('login-psw').value;
-    registerUser(email,psw);
+    const email=document.getElementById('signup-email').value;
+    const psw =document.getElementById('signup-psw').value;
+    registerUser(username,email,psw);
 })

@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS  
+from flask_cors import CORS 
 import json
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST"]}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 usersPath="./static/backend/users.json"
 def loadUsers():
@@ -32,7 +33,7 @@ def login():
     password = data.get('password')
 
     for user in allUsers:
-        if (user["email"] == email or user["username"]) and user["password"] == password:
+        if (user["email"] == email or user["username"]==username) and user["password"] == password:
             return jsonify({"token": "placeholder-token-123"}), 200
 
     return jsonify({"error": "Invalid email or password"}), 401
@@ -43,13 +44,16 @@ def signup():
     username=data.get('username')
     email = data.get('email')
     password = data.get('password')
-    
+    if not password or len( password.size()==0):
+        return jsonify({"error": "Password too short"}), 401
+    if email.count('@')!=1:
+        return jsonify({"error": "Invalid email format"}), 401 
     for user in allUsers:
         if user["email"] == email:
             return jsonify({"error": "An account with this email already exists"}), 409
         if user["username"] == username:
             return jsonify({"error": "Username is taken"}), 409
-        
+     
     new_user = {"username": username, "email": email, "password": password}
     allUsers.append(new_user)
     saveUsers(allUsers)

@@ -72,6 +72,7 @@ body {
     transition: none;
     transform: translateX(-400px);
 }
+
 .wrapper .formBox.register{
     position: absolute;
     transition: transform .18s ease;
@@ -86,41 +87,40 @@ body {
 .formBox h2{
     font-size:x-large;
     color:darkred;
-    text-align:justify;
+    text-align:center;
     font-weight: 1600;
 }
 
 .inputBox {
     position: relative;
+    display: table-row;
     width: 100%;
     height: 50px;
     margin: auto;
 }
-.inputBox label {
-    position: absolute;
-    top:55%;
-    left: 5px;
-    font-size: 1em;
-    color: darkred;
-    pointer-events: none;
-}
-
-.inputBox input:focus~label,
-.inputBox input:valid~label {
-    color: rgb(92, 1, 1);
-    font-weight: 600;
-}
-
 
 .inputBox input {
     font-size: 1em;
     color: darkred;
     font-weight: 500;
 }
+.inputBox input:focus~label,
+.inputBox input:valid~label {
+    color: rgb(92, 1, 1);
+    font-weight: 600;
+}
+.inputBox label {
+    left: 5px;
+    font-size: 1em;
+    color: darkred;
+    pointer-events: none;
+}
+
+
 
 .inputBox .icon {
-    position:sticky;
     left: 7px;
+    height:auto;
     font-size: 1.2em;
     color: darkred;
 }
@@ -128,7 +128,7 @@ body {
 .rememberMe{
     font-size: .95em;
     color: darkred;
-    font-weight: 600;
+    font-weight: 300;
     display: flex;
     justify-content: space-between;
 }
@@ -138,6 +138,7 @@ body {
 }
 .rememberMe label:hover{
     text-decoration: underline;
+    font-weight: 600;
 }
 .rememberMe a {
     color: darkred;
@@ -145,10 +146,11 @@ body {
 }
 .rememberMe a:hover{
     text-decoration: underline;
+    font-weight: 600;
 }
 .button{
     width: 100%;
-    height: 45px;
+    height: 40px;
     background:darkred;
     border: none;
     outline: none;
@@ -186,4 +188,7 @@ body {
 }
 .termsAndCond a:hover{
     text-decoration: underline;
+}
+.termsAndCond input{
+    accent-color: darkred;
 }

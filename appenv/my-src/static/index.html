@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAY - Full Stack Developer Test Exercise</title>
+    <link rel="stylesheet" href="./static/frontend/src/style.css">
+</head>
+<body>
+    <div class="row">
+        <div class="logo-container">
+            <img id="signup-logo" class="brand-logo" src="./static/frontend/src/utils/RAY-Brand-Black.png">
+        </div>
+        <div class="wrapper">
+            <div class="formBox signup">
+                <h2>Welcome</h2>
+                <form action="#">
+                    <div class="inputBox">
+                        <span class="icon">
+                            <ion-icon name="mail"></ion-icon>
+                        </span>
+                        <input type="email" id="login-email" required>
+                        <label>Email</label>
+                    </div>
+                </form>
+                <form action="#">
+                    <div class="inputBox">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" id="login-psw" required>
+                        <label>Contraseña</label>
+                    </div>
+                    <div class="rememberMe">
+                        <label><input type="checkbox"> Remember me.
+                        </label>
+                        <a href="#">Forgot your Password?</a>
+                    </div>
+                    <button type="submit" class="button" id="login-btn">Login</button>
+                    <div class="signup-register">
+                        <p> Don't have an account? <a href="#" class="register-link"> Register</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="formBox register">
+                <h2>Registration</h2>
+                <form action="#">
+                    <div class="inputBox">
+                        <span class="icon">
+                            <ion-icon name="person"></ion-icon>
+                        </span>
+                        <input type="text" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="inputBox">
+                        <span class="icon">
+                            <ion-icon name="mail"></ion-icon>
+                        </span>
+                        <input type="email" required>
+                        <label>Email</label>
+                    </div>
+                </form>
+                <form action="#">
+                    <div class="inputBox">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" required>
+                        <label>Contraseña</label>
+                    </div>
+                    <div class="inputBox">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" required>
+                        <label>Repetir Contraseña</label>
+                    </div>
+                    <div class="termsAndCond">
+                        <label><input type="checkbox"> I agree with the
+                        </label>
+                        <a href="#"> terms & conditions.</a>
+                    </div>
+                    <button type="submit" class="button" id="register-btn">Register</button>
+                    <div class="signup-register">
+                        <p> Already have an account? <a href="#" class="signup-link"> Sign up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+<script type="module" src="./static/frontend/src/login-signup.js"></script>
+<script type="module" src="./static/frontend/src/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
