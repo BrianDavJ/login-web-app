@@ -1,5 +1,4 @@
 const PORT = "http://localhost:5000";
-const termsAndCond = document.getElementsByClassName('termsAndCond')
 
 export function checkLogin(email, password) {
   fetch(`${PORT}/login`, {
