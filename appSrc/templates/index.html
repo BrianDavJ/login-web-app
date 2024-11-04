@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAY - Full Stack Developer Test Exercise</title>
     <link rel="stylesheet" href="../static/frontend/src/style.css">
+
+    <title>RAY - Full Stack Developer Test Exercise</title>
+    
+
 </head>
 <body>
     <div class="row">
         <div class="logo-container">
-            <img id="signup-logo" class="brand-logo" src="../static/frontend/src/utils/RAY-Brand-Black.png">
+            <img class="brand-logo" src="../static/frontend/src/utils/RAY-Brand-Black.png">
         </div>
-        <div class="wrapper">{%block wrapper %}
+        {%block wrapper %}<div class="wrapper">
             <div class="formBox signup">
                 <h2>Welcome</h2>
                 <form action="#">
@@ -90,11 +93,10 @@
                         <p> Already have an account? <a href="#" class="signup-link"> Sign up</a></p>
                     </div>
                 </form>
-            {% endblock %}</div>
+            </div>{% endblock %}
         </div> 
     </div>
-<script type="module" src="./static/frontend/src/login-signup.js"></script>
-<script type="module" src="./static/frontend/src/script.js"></script>
+
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

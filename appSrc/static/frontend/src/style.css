@@ -21,7 +21,7 @@ body {
 
     height: 100vh
 }
-#signup-logo {
+.brand-logo {
     vertical-align: middle;
     padding: 5px;
     @media (max-width: 768px) {
@@ -88,7 +88,7 @@ body {
     font-size:x-large;
     color:darkred;
     text-align:center;
-    font-weight: 1600;
+    font-weight: 768;
 }
 
 .inputBox {
