@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: API challenge login RAY - Full Stack Developer
+  description: Esta es la API del desfío para el puesto de Full Stack Developer trainee, se encarga del registro e inicio de sesión de una app web.
+  version: 1.0.0
+  contact:
+    email: brian.d.jaime97@gmail.com
+servers: 
+- url: http://127.0.0.1:5000/
+
+paths: 
+  /login:
+    post:
+      parameters:
+      requestBody: 
+        content: 
+          application/json: 
+            schema:
+              $ref: '#/components/schemas/BodyLoginPost'
+        required: true
+      responses:
+        200:
+          description: (OK) Login successful!
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/LoginPostExitoso'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          description: (Unauthorized) Correo, usuario o contraseña inicio de sesión inválidos
+        404:
+          $ref: '#/components/responses/NotFound'
+  /signup:
+    post:
+      parameters:
+      requestBody: 
+        content: 
+          application/json: 
+            schema:
+              $ref: '#/components/schemas/BodySignupPost'
+        required: true
+      responses:
+        201:
+          description: (OK) Usuario creado correctamente!
+          content:
+            application/json: 
+              schema: 
+                $ref: '#/components/schemas/LoginPostExitoso'
+        401:
+          description: (Unauthorized) Correo, usuario o contraseña inicio de sesión inválidos
+        404:
+          $ref: '#/components/responses/NotFound'
+        409:
+          $ref: '#/components/responses/Conflict'
+
+
+components:
+  responses:
+    Unauthorized:
+      description: (Unauthorized) Falta autorización para llamar al servicio.
+    BadRequest:
+      description: (BadRequest) Los datos enviados son incorrectos o hay datos obligatorios no enviados
+    NotFound:
+      description: (NotFound) No se encontró la información
+    ServerError:
+      description: Error en el servidor
+    Conflict:
+      description: (Conflict) Ya existe un recurso con esos datos.
+
+  schemas:
+    BodyLoginPost:
+      type: object
+      properties: 
+        email_o_usuario:
+          type: string
+          description: El mail o nombre de usuario de un cliente registrado.
+        contraseña:
+          type: string
+          description: Contraseña de la cuenta  asociada.
+    LoginPostExitoso:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Token de sesión de ese usuario.
+    BodySignupPost:
+      type: object
+      properties: 
+        usuario:
+          type: string
+          description: El nombre de usuario que se desea registrar.
+        email:
+          type: string
+          description: Email que al que se desea registrar.
+        contraseña:
+          type: string
+          description: Contraseña para la cuenta.
+        repetición_de_contraseña:
+          type: string
+          description: Debe coindicir con la contraseña.
+        
+
+
+        
+  
+
