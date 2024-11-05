@@ -15,7 +15,10 @@ Asegurese de tener la última versión de Python instalada.
 2. `pip install -r requirements.txt`
 
 # Usar la APP
-entrar a la url base: `http://127.0.0.1:5000/`
+- usar comando: `python main.py`
+(Para los sistemas linux es necesario crear un venv primero)
+
+- entrar a la url base: `http://localhost:5000/`
  
 
 ## Endpoints
