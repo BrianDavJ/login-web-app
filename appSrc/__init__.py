@@ -9,8 +9,10 @@ def create_app():
     app.config['CORS_HEADERS'] = 'Content-Type'
     app.config['SECRET_KEY']='placerHolderKey'
 
+    from .base import base
     from .auth import auth
 
+    app.register_blueprint(base,url_prefix='/')
     app.register_blueprint(auth,url_prefix='/')
 
     return app
