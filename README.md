@@ -3,8 +3,8 @@
 Para este challenge decidí usar Python con Flask para el backend ya que es muy legible y sencillo de setuppear y para el front usé JavaScript, CSS y HTML.
 -[Setup & Installation](#setup--installation)
 - [Endpoints](#endpoints)
-  - [POST /login](#post-login)
-  - [POST /signup](#post-signup)
+  - [POST /login](#post--login)
+  - [POST /signup](#post---signup)
 - [Data Model](#data-model)
 ## Setup & Installation
 
@@ -19,7 +19,7 @@ entrar a la url base: `http://127.0.0.1:5000/`
 
 ## Endpoints
 
-### POST   /login:
+### POST  /login:
 - **URL**: `/login`
 - **Method**: `POST`
 - **Headers**: 
