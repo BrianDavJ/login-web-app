@@ -1,7 +1,8 @@
 # login-web-app
 
 Para este challenge decidí usar Python con Flask para el backend ya que es muy legible y sencillo de setuppear y para el front usé JavaScript, CSS y HTML.
--[Setup & Installation](#setup--installation)
+
+- [Setup & Installation](#setup--installation)
 - [Endpoints](#endpoints)
   - [POST /login](#post--login)
   - [POST /signup](#post---signup)
